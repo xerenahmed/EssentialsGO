@@ -4,9 +4,9 @@ Essential commands for [Dragonfly](github.com/df-mc/dragonfly).
 ## Ready for:
 - [x] /gamemode - Changes the player to a specific game mode.
 - [x] /teleport - Teleport everywhere.
-- [x] /setworldspawn - Show/hide coordinates.
-- [x] /defaultgamemode - Sets a worlds's spawn point.
-- [x] /xyz - Set the default gamemode.
+- [x] /setworldspawn - Sets a worlds's spawn point.
+- [x] /defaultgamemode - Set the default gamemode.
+- [x] /xyz - Show/hide coordinates.
 - [x] /stop - Stop the server from in game.
 - [x] /op - Give op permissions to player.
 - [x] /deop - Take op permissions from player.

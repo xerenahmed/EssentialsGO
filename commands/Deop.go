@@ -5,11 +5,11 @@ import (
 	"github.com/df-mc/dragonfly/dragonfly/player"
 )
 
-type Op struct {
+type Deop struct {
 	Target string `optional:""`
 }
 
-func (t Op) Run(source cmd.Source, output *cmd.Output) {
+func (t Deop) Run(source cmd.Source, output *cmd.Output) {
 	p := source.(*player.Player)
 	if !IsOp(p){
 		output.Error("You don't have permission for this command.")
@@ -22,6 +22,7 @@ func (t Op) Run(source cmd.Source, output *cmd.Output) {
 			return
 		}
 	}
-	AddOp(pt.Name())
-	output.Printf("Has been granted op permissions to %s.", pt.Name())
+
+	DelOp(pt.Name())
+	output.Printf("Has been taken op permissions from %s.", pt.Name())
 }

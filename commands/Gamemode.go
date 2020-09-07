@@ -13,6 +13,10 @@ type GameMode struct {
 
 func (t GameMode) Run(source cmd.Source, output *cmd.Output) {
 	p := source.(*player.Player)
+	if !IsOp(p){
+		output.Error("You don't have permission for this command.")
+		return
+	}
 	mode := StringToGameMode(string(t.GameMode))
 
 	p.SetGameMode(mode)
@@ -26,7 +30,7 @@ func (mode) Type() string {
 }
 
 func (mode) Options() []string {
-	return []string{"0", "1", "2", "s", "c", "a"}
+	return []string{"0", "1", "2", "s", "c", "a", "survival", "creative", "adventure"}
 }
 
 func (mode) SetOption(option string, r reflect.Value) {

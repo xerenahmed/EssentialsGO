@@ -8,6 +8,8 @@ Essential commands for Dragonfly.
 - [x] /defaultgamemode - Sets a worlds's spawn point.
 - [x] /xyz - Set the default gamemode.
 - [x] /stop - Stop the server from in game.
+- [x] /op - Give op permissions to player.
+- [x] /deop - Take op permissions from player.
 
 ## Usage
 ### Get the package

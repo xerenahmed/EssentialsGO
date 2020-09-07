@@ -13,6 +13,10 @@ type Teleport struct {
 
 func (t Teleport) Run(source cmd.Source, output *cmd.Output) {
 	p, _ := source.(*player.Player)
+	if !IsOp(p){
+		output.Error("You don't have permission for this command.")
+		return
+	}
 	p.Teleport(mgl64.Vec3{t.X, t.Y, t.Z})
 	output.Print("Teleported to X: " + strconv.Itoa(int(t.X)) + " Y: " + strconv.Itoa(int(t.Y)) + " Z: " + strconv.Itoa(int(t.Z)))
 }

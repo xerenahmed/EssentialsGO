@@ -10,6 +10,10 @@ type SetWorldSpawn struct {}
 
 func (t SetWorldSpawn) Run(source cmd.Source, output *cmd.Output) {
 	p, _ := source.(*player.Player)
+	if !IsOp(p){
+		output.Error("You don't have permission for this command.")
+		return
+	}
 	pos := p.Position()
 	bp := world.BlockPos{int(pos.X()), int(pos.Y()), int(pos.Z())}
 

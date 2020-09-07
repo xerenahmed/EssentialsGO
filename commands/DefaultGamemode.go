@@ -12,6 +12,10 @@ type DefaultGameMode struct {
 
 func (t DefaultGameMode) Run(source cmd.Source, output *cmd.Output) {
 	p := source.(*player.Player)
+	if !IsOp(p){
+		output.Error("You don't have permission for this command.")
+		return
+	}
 	mode := StringToGameMode(string(t.GameMode))
 
 	p.World().SetDefaultGameMode(mode)

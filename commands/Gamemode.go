@@ -3,7 +3,6 @@ package commands
 import (
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"github.com/df-mc/dragonfly/dragonfly/player"
-	"github.com/df-mc/dragonfly/dragonfly/world/gamemode"
 	"reflect"
 )
 
@@ -14,16 +13,10 @@ type GameMode struct {
 
 func (t GameMode) Run(source cmd.Source, output *cmd.Output) {
 	p := source.(*player.Player)
-	mode := map[mode]gamemode.GameMode{
-		"0": gamemode.Survival{}, "s": gamemode.Survival{},
-		"1": gamemode.Creative{}, "c": gamemode.Creative{},
-		"2": gamemode.Adventure{}, "a": gamemode.Adventure{},
-	}[t.GameMode]
+	mode := StringToGameMode(string(t.GameMode))
 
 	p.SetGameMode(mode)
-	output.Printf("Set own game mode to " + map[gamemode.GameMode]string{
-		gamemode.Survival{}: "survival", gamemode.Creative{}: "creative", gamemode.Adventure{}: "adventure",
-	}[mode] + ".")
+	output.Printf("Set own game mode to %s.", GameModeToName(mode))
 }
 
 type mode string

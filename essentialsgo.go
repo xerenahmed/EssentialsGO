@@ -12,4 +12,5 @@ func LoadCommands(server *dragonfly.Server) {
 	cmd.Register(cmd.New("teleport", "Teleport everywhere.", []string{"tp", "teleport"}, commands.Teleport{}))
 	cmd.Register(cmd.New("xyz", "Show coordinates.", []string{"xyz"}, commands.XYZ{}))
 	cmd.Register(cmd.New("setworldspawn", "Sets a worlds's spawn point. Your coordinates will be used.", []string{"setworldspawn"}, commands.SetWorldSpawn{}))
+	cmd.Register(cmd.New("defaultgamemode", "Set the default gamemode", []string{"defaultgamemode"}, commands.DefaultGameMode{}))
 }

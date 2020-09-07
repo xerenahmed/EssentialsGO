@@ -1,5 +1,11 @@
 package utils
 
+import (
+	"github.com/df-mc/dragonfly/dragonfly/player"
+	"github.com/eren5960/essentialsgo/global"
+	"strings"
+)
+
 func SliceUnique(slice []string) []string {
 	keys := make(map[string]bool)
 	var list []string
@@ -10,4 +16,17 @@ func SliceUnique(slice []string) []string {
 		}
 	}
 	return list
+}
+
+func PlayerByName(name string) (*player.Player, bool) {
+	for _, p := range global.Server.Players() {
+		if strings.ToLower(p.Name()) == strings.ToLower(name) {
+			return p, true
+		}
+	}
+	return nil, false
+}
+
+func SubEmpty(s string) bool{
+	return strings.HasPrefix(s, "/")
 }

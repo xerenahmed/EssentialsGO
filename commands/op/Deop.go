@@ -3,7 +3,7 @@ package op
 import (
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"github.com/df-mc/dragonfly/dragonfly/player"
-	"github.com/eren5960/essentialsgo/global"
+	"github.com/eren5960/essentialsgo/commands/utils"
 )
 
 type Deop struct {
@@ -17,8 +17,8 @@ func (t Deop) Run(source cmd.Source, output *cmd.Output) {
 		return
 	}
 	pt := p
-	if t.Target != t.Cmd() {
-		if pt, _ = global.Server.PlayerByName(t.Target); pt == nil{
+	if !utils.SubEmpty(t.Target) {
+		if pt, _ = utils.PlayerByName(t.Target); pt == nil{
 			output.Error(t.Target + " can't found.")
 			return
 		}

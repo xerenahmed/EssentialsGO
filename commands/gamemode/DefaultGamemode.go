@@ -18,7 +18,6 @@ func (t DefaultGameMode) Run(source cmd.Source, output *cmd.Output) {
 		return
 	}
 	mode := StringToGameMode(string(t.GameMode))
-
 	p.World().SetDefaultGameMode(mode)
 	output.Printf("The world's default game mode is now %s.", GameModeToName(mode))
 }

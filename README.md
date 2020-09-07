@@ -7,6 +7,7 @@ Essential commands for Dragonfly.
 - [x] /setworldspawn - Show/hide coordinates.
 - [x] /defaultgamemode - Sets a worlds's spawn point.
 - [x] /xyz - Set the default gamemode.
+- [x] /stop - Stop the server from in game.
 
 ## Usage
 ### Get the package

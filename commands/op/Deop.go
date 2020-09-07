@@ -17,7 +17,7 @@ func (t Deop) Run(source cmd.Source, output *cmd.Output) {
 		return
 	}
 	pt := p
-	if t.Target != "" {
+	if t.Target != t.Cmd() {
 		if pt, _ = global.Server.PlayerByName(t.Target); pt == nil{
 			output.Error(t.Target + " can't found.")
 			return
@@ -26,4 +26,8 @@ func (t Deop) Run(source cmd.Source, output *cmd.Output) {
 
 	DelOp(pt.Name())
 	output.Printf("Has been taken op permissions from %s.", pt.Name())
+}
+
+func (Deop) Cmd() string{
+	return "/deop"
 }

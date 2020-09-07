@@ -17,7 +17,8 @@ func (t Op) Run(source cmd.Source, output *cmd.Output) {
 		return
 	}
 	pt := p
-	if t.Target != "" {
+
+	if t.Target != t.Cmd() {
 		if pt, _ = global.Server.PlayerByName(t.Target); pt == nil{
 			output.Error(t.Target + " can't found.")
 			return
@@ -26,4 +27,8 @@ func (t Op) Run(source cmd.Source, output *cmd.Output) {
 
 	AddOp(pt.Name())
 	output.Printf("Has been granted op permissions to %s.", pt.Name())
+}
+
+func (Op) Cmd() string{
+	return "/op"
 }

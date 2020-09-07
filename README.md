@@ -1,5 +1,5 @@
 # Essentials GO
-Essential commands for Dragonfly.
+Essential commands for [Dragonfly](github.com/df-mc/dragonfly).
 
 ## Ready for:
 - [x] /gamemode - Changes the player to a specific game mode.
@@ -18,9 +18,13 @@ Essential commands for Dragonfly.
 ```go 
 import "github.com/eren5960/essentialsgo"
 ```
-### Load command
+### Load commands
 ```go
-essentialsgo.LoadCommands(server) // the server is *dragonfly.Server{}
+essentialsgo.LoadCommands(server, nil) // the server is *dragonfly.Server{}, nil for load all commands
+```
+#### Load commands without some commands
+```go
+essentialsgo.LoadCommands(server, []string{"stop", "defaultgamemode"}) // All will be loaded except "stop" and "defaultgamemode" command
 ```
 #### Finis
 If you want to support the project, you can give a star, report errors and bugs as issues.

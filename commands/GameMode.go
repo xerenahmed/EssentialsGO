@@ -1,22 +1,18 @@
 package commands
-
+// Eren5960 <ahmederen123@gmail.com>
 import (
-	"github.com/davecgh/go-spew/spew"
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"github.com/df-mc/dragonfly/dragonfly/player"
 	"github.com/df-mc/dragonfly/dragonfly/world/gamemode"
-	"github.com/sandertv/gophertunnel/minecraft/text"
 	"reflect"
 )
 
 type GameMode struct {
 	GameMode mode
-	Target   target
+	// Target   target will be soon
 }
 
-// Run ...
 func (t GameMode) Run(source cmd.Source, output *cmd.Output) {
-	spew.Dump(t)
 	p := source.(*player.Player)
 	mode := map[mode]gamemode.GameMode{
 		"0": gamemode.Survival{}, "s": gamemode.Survival{},
@@ -25,7 +21,9 @@ func (t GameMode) Run(source cmd.Source, output *cmd.Output) {
 	}[t.GameMode]
 
 	p.SetGameMode(mode)
-	output.Printf(text.Green()("Changed gamemode."))
+	output.Printf("Set own game mode to " + map[gamemode.GameMode]string{
+		gamemode.Survival{}: "survival", gamemode.Creative{}: "creative", gamemode.Adventure{}: "adventure",
+	}[mode] + ".")
 }
 
 type mode string
@@ -39,25 +37,5 @@ func (mode) Options() []string {
 }
 
 func (mode) SetOption(option string, r reflect.Value) {
-	r.SetString(option)
-}
-
-type target string
-
-func (target) Type() string {
-	return "target"
-}
-
-func (target) Options() []string {
-	var players []string
-
-	for _, p := range Server.Players() {
-		players = append(players, p.Name())
-	}
-
-	return players
-}
-
-func (target) SetOption(option string, r reflect.Value) {
 	r.SetString(option)
 }

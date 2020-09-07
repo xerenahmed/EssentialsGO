@@ -1,8 +1,9 @@
-package commands
+package gamemode
 // Eren5960 <ahmederen123@gmail.com>
 import (
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"github.com/df-mc/dragonfly/dragonfly/player"
+	"github.com/eren5960/essentialsgo/commands/op"
 )
 
 type DefaultGameMode struct {
@@ -12,7 +13,7 @@ type DefaultGameMode struct {
 
 func (t DefaultGameMode) Run(source cmd.Source, output *cmd.Output) {
 	p := source.(*player.Player)
-	if !IsOp(p){
+	if !op.IsOp(p){
 		output.Error("You don't have permission for this command.")
 		return
 	}

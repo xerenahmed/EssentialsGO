@@ -8,7 +8,6 @@ import (
 
 type DefaultGameMode struct {
 	GameMode mode // @see Gamemode.go for "mode"
-	// Target   target will be soon
 }
 
 func (t DefaultGameMode) Run(source cmd.Source, output *cmd.Output) {

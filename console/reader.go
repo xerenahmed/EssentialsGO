@@ -3,7 +3,6 @@ package console
 import (
 	"bufio"
 	"fmt"
-	"github.com/davecgh/go-spew/spew"
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"os"
 	"strings"
@@ -20,7 +19,6 @@ func StartConsole() {
 		for {
 			if scanner.Scan() {
 				commandString := scanner.Text()
-				spew.Dump(commandString, strings.TrimPrefix(strings.TrimPrefix(commandString, commandString), " "))
 
 				split := strings.Split(commandString, " ")
 				if len(commandString) == 0 {

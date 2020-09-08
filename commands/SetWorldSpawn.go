@@ -1,6 +1,7 @@
 package commands
 // Eren5960 <ahmederen123@gmail.com>
 import (
+	"github.com/davecgh/go-spew/spew"
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"github.com/df-mc/dragonfly/dragonfly/player"
 	"github.com/df-mc/dragonfly/dragonfly/world"
@@ -10,12 +11,13 @@ import (
 )
 
 type SetWorldSpawn struct {
-	X float64 `default:""`
-	Y float64 `default:""`
-	Z float64 `default:""`
+	X int `default:""`
+	Y int `default:""`
+	Z int `default:""`
 }
 
 func (t SetWorldSpawn) Run(source cmd.Source, output *cmd.Output) {
+	spew.Dump(t.X, t.Y, t.Z)
 	if _, ok := source.(*console.Console); ok{
 		output.Error("Use in game!")
 		return

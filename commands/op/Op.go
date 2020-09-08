@@ -19,14 +19,13 @@ func (t Op) Run(source cmd.Source, output *cmd.Output) {
 	if t.Target == "" {
 		if p, ok := source.(*player.Player); ok {
 			pt = p.Name()
-		} else {
-			output.Error("Usage: /op <Player: string>")
-			return
 		}
-	} else {
-		pt = t.Target
 	}
 
-	AddOp(pt)
-	output.Printf("Has been granted op permissions to %s.", pt)
+	if pt != "" {
+		AddOp(pt)
+		output.Printf("Has been granted op permissions to %s.", pt)
+	} else {
+		output.Error("Usage: /op <Player: string>")
+	}
 }

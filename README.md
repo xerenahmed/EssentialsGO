@@ -10,6 +10,7 @@ Essential commands for [Dragonfly](github.com/df-mc/dragonfly).
 - [x] /stop - Stop the server from in game.
 - [x] /op - Give op permissions to player.
 - [x] /deop - Take op permissions from player.
+- [x] /help - Show server commands and descriptions.
 
 ## Usage
 ### Get the package
@@ -28,3 +29,9 @@ essentialsgo.LoadCommands(server, []string{"stop", "defaultgamemode"}) // All wi
 ```
 #### Finis
 If you want to support the project, you can give a star, report errors and bugs as issues.
+
+# VIP
+## Simple Console Command Sender
+```go
+essentialsgo.LoadConsole()
+```

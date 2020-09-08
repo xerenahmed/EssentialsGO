@@ -3,7 +3,6 @@ package console
 import (
 	"bufio"
 	"fmt"
-	"github.com/davecgh/go-spew/spew"
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"os"
 	"strings"
@@ -12,7 +11,7 @@ import (
 
 func StartConsole() {
 	go func() {
-		time.Sleep(time.Second * 1)
+		time.Sleep(time.Millisecond * 500)
 		source := &Console{}
 		fmt.Println("Type help for commands.")
 		// I don't use fmt.Scan() because the fmt package intentionally filters out whitespaces, this is how it is implemented.
@@ -20,12 +19,10 @@ func StartConsole() {
 		for {
 			if scanner.Scan() {
 				commandString := scanner.Text()
-
-				split := strings.Split(commandString, " ")
 				if len(commandString) == 0 {
 					continue
 				}
-				commandName := split[0]
+				commandName := strings.Split(commandString, " ")[0]
 				command, ok := cmd.ByAlias(commandName)
 
 				if !ok {
@@ -36,8 +33,8 @@ func StartConsole() {
 					}
 					continue
 				}
-				spew.Dump(strings.TrimPrefix(commandString, commandString+" "))
-				command.Execute(strings.TrimPrefix(commandString, commandString+" "), source)
+
+				command.Execute(strings.TrimPrefix(strings.TrimPrefix(commandString, commandName), " "), source)
 			}
 		}
 	}()

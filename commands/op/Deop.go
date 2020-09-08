@@ -19,14 +19,13 @@ func (t Deop) Run(source cmd.Source, output *cmd.Output) {
 	if t.Target == "" {
 		if p, ok := source.(*player.Player); ok {
 			pt = p.Name()
-		} else {
-			output.Error("Usage: /op <Player: string>")
-			return
 		}
-	} else {
-		pt = t.Target
 	}
 
-	DelOp(pt)
-	output.Printf("Has been taken op permissions from %s.", pt)
+	if pt != "" {
+		DelOp(pt)
+		output.Printf("Has been taken op permissions from %s.", pt)
+	} else {
+		output.Error("Usage: /deop <Player: string>")
+	}
 }

@@ -56,7 +56,3 @@ func (mode) Options() []string {
 func (mode) SetOption(option string, r reflect.Value) {
 	r.SetString(option)
 }
-
-func (GameMode) Cmd() string{
-	return "/gamemode"
-}

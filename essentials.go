@@ -6,6 +6,7 @@ import (
 	"github.com/eren5960/essentialsgo/commands"
 	"github.com/eren5960/essentialsgo/commands/gamemode"
 	"github.com/eren5960/essentialsgo/commands/op"
+	"github.com/eren5960/essentialsgo/commands/time"
 	"github.com/eren5960/essentialsgo/console"
 	"github.com/eren5960/essentialsgo/global"
 )
@@ -37,6 +38,7 @@ func GetCommands() map[string]cmd.Command{
 		"op":		       cmd.New("op", "Give op permissions to player.", []string{"op"}, op.Op{}),
 		"deop":			   cmd.New("deop", "Take op permissions from player.", []string{"deop"}, op.Deop{}),
 		"help":			   cmd.New("help", "Show server commands and descriptions.", []string{"help"}, commands.Help{}),
+		"time":			   cmd.New("time", "Changes or queries the world's game time.", []string{"time"}, time.Set{}, time.SetTimeSpec{}, time.Query{}, time.Add{}),
 	}
 }
 

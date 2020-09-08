@@ -11,6 +11,7 @@ Essential commands for [Dragonfly](https://github.com/df-mc/dragonfly).
 - [x] /op - Give op permissions to player.
 - [x] /deop - Take op permissions from player.
 - [x] /stop - Stop the server from in game.
+- [x] /time - Changes or queries the world's game time.
 
 ## Usage
 ### Get the package

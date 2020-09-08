@@ -1,5 +1,5 @@
 package gamemode
-
+// Eren5960 <ahmederen123@gmail.com>
 import "github.com/df-mc/dragonfly/dragonfly/world/gamemode"
 
 func StringToGameMode(arg string) gamemode.GameMode{

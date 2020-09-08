@@ -1,11 +1,11 @@
 package commands
-
+// Eren5960 <ahmederen123@gmail.com>
 import (
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"github.com/df-mc/dragonfly/dragonfly/player"
 	"github.com/eren5960/essentialsgo/console"
 )
-// Eren5960 <ahmederen123@gmail.com>
+
 type XYZ struct {}
 
 var opened = map[string]bool{}

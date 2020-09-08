@@ -17,9 +17,14 @@ func (t SetWorldSpawnXYZ) Run(source cmd.Source, output *cmd.Output) {
 		output.Error("You don't have permission for this command.")
 		return
 	}
-
+	w := global.Server.World()
 	bp := world.BlockPos{int(t.X), int(t.Y), int(t.Z)}
-	global.Server.World().SetSpawn(bp)
+
+	if p, ok := source.(*player.Player); ok {
+		w = p.World()
+	}
+
+	w.SetSpawn(bp)
 	output.Printf("Set the default world spawn point to (%d, %d, %d)", bp.X(), bp.Y(), bp.Z())
 }
 

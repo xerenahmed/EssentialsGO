@@ -29,34 +29,35 @@ func (t TeleportXYZ) Run(source cmd.Source, output *cmd.Output) {
 }
 
 type TeleportPlayer struct {
-	Target string
-	Target2 string `optional:""`
+	Player string
+	Target string `optional:""`
 }
 
 func (t TeleportPlayer) Run(source cmd.Source, output *cmd.Output) {
-	if t.Target != "" {
-		to, ok := utils.PlayerByName(t.Target)
+	if t.Player != "" {
+		to, ok := utils.PlayerByName(t.Player)
 		if !ok {
-			output.Errorf("%s not found", t.Target)
+			output.Errorf("%s not found", t.Player)
 			return
 		}
-		if t.Target2 == "" {
+		if t.Target == "" {
 			if p, ok := source.(*player.Player); ok {
 				t.TeleportAnotherPlayer(p, to)
+				return
 			}
 		} else {
-			p, ok := utils.PlayerByName(t.Target2)
+			p, ok := utils.PlayerByName(t.Target)
 			if !ok {
-				output.Errorf("%s not found.", t.Target2)
+				output.Errorf("%s not found.", t.Target)
 				return
 			}
 			t.TeleportPlayerToAnotherPlayer(to, p)
-			output.Printf("The player %s has been teleported to %s.", to.Name(), p.Name())
+			output.Printf("%s has been teleported to %s.", to.Name(), p.Name())
 			return
 		}
 	}
 
-	output.Error("Usage: /teleport <Player: string> <Player: string, optional>")
+	output.Error("Usage: /teleport <Player: string> [Target: string]")
 }
 
 func (TeleportPlayer) TeleportAnotherPlayer(p, to *player.Player) {
@@ -66,6 +67,6 @@ func (TeleportPlayer) TeleportAnotherPlayer(p, to *player.Player) {
 
 func (TeleportPlayer) TeleportPlayerToAnotherPlayer(to, p *player.Player) {
 	to.Teleport(p.Position())
-	p.Message(fmt.Sprintf("The player %s has been teleported to your side.", to.Name()))
-	to.Message(fmt.Sprintf("You have been teleported here by the %s.", p.Name()))
+	p.Message(fmt.Sprintf("%s has been teleported to your side.", to.Name()))
+	to.Message(fmt.Sprintf("You have been teleported here by %s.", p.Name()))
 }

@@ -3,6 +3,7 @@ package commands
 import (
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"github.com/df-mc/dragonfly/dragonfly/player"
+	"github.com/eren5960/essentialsgo/console"
 )
 // Eren5960 <ahmederen123@gmail.com>
 type XYZ struct {}
@@ -10,19 +11,23 @@ type XYZ struct {}
 var opened = map[string]bool{}
 
 func (t XYZ) Run(source cmd.Source, output *cmd.Output) {
+	if _, ok := source.(*console.Console); ok{
+		output.Error("Use in game!")
+		return
+	}
 	var msg string
 	p, _ := source.(*player.Player)
 	id := p.Name()
 
+	opened[id] = !opened[id]
+
 	if opened[id] {
+		p.ShowCoordinates()
+		msg = "shown"
+	} else{
 		p.HideCoordinates()
-		opened[id] = false
 		msg = "hidden"
-		return
 	}
-	p.ShowCoordinates()
-	opened[id] = true
-	msg = "shown"
 
 	output.Print("Coordinates " + msg + ".")
 }

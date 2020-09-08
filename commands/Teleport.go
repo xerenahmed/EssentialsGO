@@ -4,6 +4,7 @@ import (
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"github.com/df-mc/dragonfly/dragonfly/player"
 	"github.com/eren5960/essentialsgo/commands/op"
+	"github.com/eren5960/essentialsgo/console"
 	"github.com/go-gl/mathgl/mgl64"
 	"strconv"
 )
@@ -13,6 +14,10 @@ type Teleport struct {
 }
 
 func (t Teleport) Run(source cmd.Source, output *cmd.Output) {
+	if _, ok := source.(*console.Console); ok{
+		output.Error("Use in game!")
+		return
+	}
 	p, _ := source.(*player.Player)
 	if !op.IsOp(p){
 		output.Error("You don't have permission for this command.")

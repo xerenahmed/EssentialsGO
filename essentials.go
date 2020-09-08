@@ -6,26 +6,22 @@ import (
 	"github.com/eren5960/essentialsgo/commands"
 	"github.com/eren5960/essentialsgo/commands/gamemode"
 	"github.com/eren5960/essentialsgo/commands/op"
+	"github.com/eren5960/essentialsgo/console"
 	"github.com/eren5960/essentialsgo/global"
 )
 
 func LoadCommands(server *dragonfly.Server, withOut []string) {
 	global.Server = server
 	op.LoadOps()
+	console.StartConsole()
 
-	for name, c := range GetCommands() {
-		if withOut != nil && len(withOut) > 0 {
-			skip := false
-			for _, c_ := range withOut{
-				if name == c_ {
-					skip = true
-					break
-				}
-			}
-			if skip {
-				continue
-			}
-		}
+	cs := GetCommands()
+
+	for _, c_ := range withOut {
+		delete(cs, c_)
+	}
+
+	for _, c := range cs {
 		cmd.Register(c)
 	}
 }

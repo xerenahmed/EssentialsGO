@@ -26,7 +26,3 @@ func PlayerByName(name string) (*player.Player, bool) {
 	}
 	return nil, false
 }
-
-func SubEmpty(s string) bool{
-	return strings.HasPrefix(s, "/")
-}

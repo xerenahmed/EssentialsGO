@@ -2,8 +2,10 @@ package op
 
 import (
 	"fmt"
+	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"github.com/df-mc/dragonfly/dragonfly/player"
 	"github.com/eren5960/essentialsgo/commands/utils"
+	"github.com/eren5960/essentialsgo/console"
 	"io/ioutil"
 	"os"
 	"strings"
@@ -32,12 +34,18 @@ func DelOp(p string){
 	SaveOps()
 }
 
-func IsOp(p *player.Player) bool{
-	for _, p_ := range ops {
-		if p_ == strings.ToLower(p.Name()){
-			return true
+func IsOp(s cmd.Source) bool{
+	if _, ok := s.(*console.Console); ok {
+		return true
+	}
+	if p, ok := s.(*player.Player); ok {
+		for _, p_ := range ops {
+			if p_ == strings.ToLower(p.Name()){
+				return true
+			}
 		}
 	}
+
 	return false
 }
 

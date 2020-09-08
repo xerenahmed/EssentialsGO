@@ -15,8 +15,7 @@ type GameMode struct {
 }
 
 func (t GameMode) Run(source cmd.Source, output *cmd.Output) {
-	p := source.(*player.Player)
-	if !op.IsOp(p){
+	if !op.IsOp(source){
 		output.Error("You don't have permission for this command.")
 		return
 	}
@@ -24,19 +23,24 @@ func (t GameMode) Run(source cmd.Source, output *cmd.Output) {
 	mode := StringToGameMode(string(t.GameMode))
 	modeString :=  GameModeToName(mode)
 
-	if !utils.SubEmpty(t.Target) {
+	if t.Target != "" {
 		if pt, _ := utils.PlayerByName(t.Target); pt == nil{
-			output.Error(t.Target + " can't found.")
+			output.Error(t.Target + " not found.")
 		} else {
 			pt.SetGameMode(mode)
 			pt.Message(fmt.Printf("Your game mode has been changed to %s.", modeString))
+			output.Printf("Set %s game mode to %s.", t.Target, modeString)
 		}
 
 		return
 	}
 
-	p.SetGameMode(mode)
-	output.Printf("Set own game mode to %s.", modeString)
+	if p, ok := source.(*player.Player); ok {
+		p.SetGameMode(mode)
+		output.Printf("Set own game mode to %s.", modeString)
+	} else {
+		output.Error("Usage: /gamemode <GameMode: mode> <Target: string>")
+	}
 }
 
 type mode string

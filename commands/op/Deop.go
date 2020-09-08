@@ -3,7 +3,6 @@ package op
 import (
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"github.com/df-mc/dragonfly/dragonfly/player"
-	"github.com/eren5960/essentialsgo/commands/utils"
 )
 
 type Deop struct {
@@ -11,23 +10,23 @@ type Deop struct {
 }
 
 func (t Deop) Run(source cmd.Source, output *cmd.Output) {
-	p := source.(*player.Player)
-	if !IsOp(p){
+	if !IsOp(source){
 		output.Error("You don't have permission for this command.")
 		return
 	}
-	pt := p
-	if !utils.SubEmpty(t.Target) {
-		if pt, _ = utils.PlayerByName(t.Target); pt == nil{
-			output.Error(t.Target + " can't found.")
+	var pt string
+
+	if t.Target == "" {
+		if p, ok := source.(*player.Player); ok {
+			pt = p.Name()
+		} else {
+			output.Error("Usage: /op <Player: string>")
 			return
 		}
+	} else {
+		pt = t.Target
 	}
 
-	DelOp(pt.Name())
-	output.Printf("Has been taken op permissions from %s.", pt.Name())
-}
-
-func (Deop) Cmd() string{
-	return "/deop"
+	DelOp(pt)
+	output.Printf("Has been taken op permissions from %s.", pt)
 }

@@ -3,6 +3,7 @@ package console
 import (
 	"bufio"
 	"fmt"
+	"github.com/davecgh/go-spew/spew"
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"os"
 	"strings"
@@ -35,8 +36,8 @@ func StartConsole() {
 					}
 					continue
 				}
-
-				command.Execute(strings.TrimPrefix(strings.TrimPrefix(commandString, commandString), " "), source)
+				spew.Dump(strings.TrimPrefix(commandString, commandString+" "))
+				command.Execute(strings.TrimPrefix(commandString, commandString+" "), source)
 			}
 		}
 	}()

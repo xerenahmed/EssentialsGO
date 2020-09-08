@@ -1,16 +1,16 @@
 # Essentials GO
-Essential commands for [Dragonfly](github.com/df-mc/dragonfly).
+Essential commands for [Dragonfly](https://github.com/df-mc/dragonfly).
 
 ## Ready for:
+- [x] /help - Show server commands and descriptions.
 - [x] /gamemode - Changes the player to a specific game mode.
 - [x] /teleport - Teleport everywhere.
-- [x] /setworldspawn - Sets a worlds's spawn point.
 - [x] /defaultgamemode - Set the default gamemode.
+- [x] /setworldspawn - Sets a worlds's spawn point.
 - [x] /xyz - Show/hide coordinates.
-- [x] /stop - Stop the server from in game.
 - [x] /op - Give op permissions to player.
 - [x] /deop - Take op permissions from player.
-- [x] /help - Show server commands and descriptions.
+- [x] /stop - Stop the server from in game.
 
 ## Usage
 ### Get the package
@@ -35,3 +35,4 @@ If you want to support the project, you can give a star, report errors and bugs 
 ```go
 essentialsgo.LoadConsole()
 ```
+![](https://user-images.githubusercontent.com/35738714/92475213-b255e580-f1e5-11ea-9e15-c5cbfc71e98e.gif)

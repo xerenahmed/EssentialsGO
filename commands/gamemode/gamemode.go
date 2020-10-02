@@ -24,7 +24,7 @@ func (t GameMode) Run(source cmd.Source, output *cmd.Output) {
 	modeString :=  GameModeToName(mode)
 
 	if t.Target != "" {
-		if pt, _ := utils.PlayerByName(t.Target); pt == nil{
+		if pt, found := utils.PlayerByName(t.Target); found {
 			output.Error(t.Target + " not found.")
 		} else {
 			pt.SetGameMode(mode)

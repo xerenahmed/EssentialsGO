@@ -2,26 +2,32 @@ package time
 
 import (
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
-	"github.com/eren5960/essentialsgo/global"
 	"reflect"
 )
 
 type Query struct {
-	Sub query
+	Sub  query
+	Time timeQuery `name:"time"`
 }
 
 func (t Query) Run(source cmd.Source, output *cmd.Output) {
-	global.Server.World().Time()
+	// TODO
 }
 
 type query string
 
-func (query) Type() string {
+func (query) SubName() string {
 	return "query"
 }
 
-func (query) Options() []string {
-	return []string{"query"}
+type timeQuery string
+
+func (timeQuery) Type() string {
+	return "TimeQuery"
 }
 
-func (query) SetOption(string, reflect.Value) {}
+func (timeQuery) Options() []string {
+	return []string{"day", "daytime", "gametime"}
+}
+
+func (timeQuery) SetOption(o string, r reflect.Value) {}

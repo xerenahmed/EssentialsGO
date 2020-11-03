@@ -1,15 +1,15 @@
 package commands
-// Eren5960 <ahmederen123@gmail.com>
+
 import (
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"github.com/eren5960/essentialsgo/commands/op"
 	"github.com/eren5960/essentialsgo/global"
 )
 
-type Stop struct {}
+type Stop struct{}
 
 func (t Stop) Run(source cmd.Source, output *cmd.Output) {
-	if !op.IsOp(source){
+	if !op.IsOp(source) {
 		output.Error("You don't have permission for this command.")
 		return
 	}

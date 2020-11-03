@@ -1,17 +1,17 @@
 package commands
-// Eren5960 <ahmederen123@gmail.com>
+
 import (
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"github.com/df-mc/dragonfly/dragonfly/player"
 	"github.com/eren5960/essentialsgo/console"
 )
 
-type XYZ struct {}
+type XYZ struct{}
 
 var opened = map[string]bool{}
 
 func (t XYZ) Run(source cmd.Source, output *cmd.Output) {
-	if _, ok := source.(*console.Console); ok{
+	if _, ok := source.(*console.Console); ok {
 		output.Error("Use in game!")
 		return
 	}
@@ -24,7 +24,7 @@ func (t XYZ) Run(source cmd.Source, output *cmd.Output) {
 	if opened[id] {
 		p.ShowCoordinates()
 		msg = "shown"
-	} else{
+	} else {
 		p.HideCoordinates()
 		msg = "hidden"
 	}

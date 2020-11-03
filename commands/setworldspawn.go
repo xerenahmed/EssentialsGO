@@ -1,5 +1,5 @@
 package commands
-// Eren5960 <ahmederen123@gmail.com>
+
 import (
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"github.com/df-mc/dragonfly/dragonfly/player"
@@ -13,7 +13,7 @@ type SetWorldSpawnXYZ struct {
 }
 
 func (t SetWorldSpawnXYZ) Run(source cmd.Source, output *cmd.Output) {
-	if !op.IsOp(source){
+	if !op.IsOp(source) {
 		output.Error("You don't have permission for this command.")
 		return
 	}
@@ -36,7 +36,7 @@ func (t SetWorldSpawn) Run(source cmd.Source, output *cmd.Output) {
 	if t.Sub != "" {
 		return
 	}
-	if !op.IsOp(source){
+	if !op.IsOp(source) {
 		output.Error("You don't have permission for this command.")
 		return
 	}

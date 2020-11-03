@@ -1,5 +1,5 @@
 package op
-// Eren5960 <ahmederen123@gmail.com>
+
 import (
 	"fmt"
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
@@ -13,16 +13,16 @@ import (
 
 var ops = make([]string, 0)
 
-func GetOps() []string{
+func GetOps() []string {
 	return ops
 }
 
-func AddOp(p string){
+func AddOp(p string) {
 	ops = append(ops, strings.ToLower(p))
 	SaveOps()
 }
 
-func DelOp(p string){
+func DelOp(p string) {
 	var newOps []string
 	for _, p_ := range ops {
 		if p_ != strings.ToLower(p) {
@@ -34,13 +34,13 @@ func DelOp(p string){
 	SaveOps()
 }
 
-func IsOp(s cmd.Source) bool{
+func IsOp(s cmd.Source) bool {
 	if _, ok := s.(*console.Console); ok {
 		return true
 	}
 	if p, ok := s.(*player.Player); ok {
 		for _, p_ := range ops {
-			if p_ == strings.ToLower(p.Name()){
+			if p_ == strings.ToLower(p.Name()) {
 				return true
 			}
 		}
@@ -49,7 +49,7 @@ func IsOp(s cmd.Source) bool{
 	return false
 }
 
-func LoadOps(){
+func LoadOps() {
 	if _, err := os.Stat("ops.txt"); os.IsNotExist(err) {
 		if _, err = os.Create("ops.txt"); err != nil {
 			fmt.Println("Error on creating ops.txt: " + err.Error())
@@ -62,6 +62,6 @@ func LoadOps(){
 	}
 }
 
-func SaveOps(){
+func SaveOps() {
 	_ = ioutil.WriteFile("ops.txt", []byte(strings.Join(utils.SliceUnique(ops), "\n")), 0655)
 }

@@ -1,5 +1,5 @@
 package utils
-// Eren5960 <ahmederen123@gmail.com>
+
 import (
 	"github.com/df-mc/dragonfly/dragonfly/player"
 	"github.com/eren5960/essentialsgo/global"

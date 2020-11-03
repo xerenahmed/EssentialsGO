@@ -5,7 +5,7 @@ import (
 	"github.com/eren5960/essentialsgo/global"
 	"math"
 )
-// Eren5960 <ahmederen123@gmail.com>
+
 type Help struct {
 	Page int `optional:""`
 }
@@ -15,8 +15,8 @@ func (t Help) Run(_ cmd.Source, output *cmd.Output) {
 	output.Printf("--- Help Page %d ---", page)
 	max := page * 5
 
-	for i, c := range global.Commands{
-		if i < max - 5 {
+	for i, c := range global.Commands {
+		if i < max-5 {
 			continue
 		} else if i >= max {
 			break
@@ -25,6 +25,6 @@ func (t Help) Run(_ cmd.Source, output *cmd.Output) {
 	}
 
 	if output.MessageCount() == 1 {
-		output.Errorf("There are only have %d pages.", int(math.Round(float64(len(global.Commands)) / 5)))
+		output.Errorf("There are only have %d pages.", int(math.Round(float64(len(global.Commands))/5)))
 	}
 }

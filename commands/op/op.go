@@ -1,5 +1,5 @@
 package op
-// Eren5960 <ahmederen123@gmail.com>
+
 import (
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 )
@@ -9,7 +9,7 @@ type Op struct {
 }
 
 func (t Op) Run(source cmd.Source, output *cmd.Output) {
-	if !IsOp(source){
+	if !IsOp(source) {
 		output.Error("You don't have permission for this command.")
 		return
 	}
@@ -27,7 +27,7 @@ type Deop struct {
 }
 
 func (t Deop) Run(source cmd.Source, output *cmd.Output) {
-	if !IsOp(source){
+	if !IsOp(source) {
 		output.Error("You don't have permission for this command.")
 		return
 	}

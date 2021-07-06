@@ -4,8 +4,8 @@ import (
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"github.com/df-mc/dragonfly/dragonfly/player"
 	"github.com/df-mc/dragonfly/dragonfly/world"
-	"github.com/eren5960/essentialsgo/commands/op"
-	"github.com/eren5960/essentialsgo/global"
+	"github.com/xerenahmed/essentialsgo/commands/op"
+	"github.com/xerenahmed/essentialsgo/global"
 )
 
 type SetWorldSpawnXYZ struct {

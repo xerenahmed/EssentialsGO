@@ -2,7 +2,7 @@ package utils
 
 import (
 	"github.com/df-mc/dragonfly/dragonfly/player"
-	"github.com/eren5960/essentialsgo/global"
+	"github.com/xerenahmed/essentialsgo/global"
 	"strings"
 )
 

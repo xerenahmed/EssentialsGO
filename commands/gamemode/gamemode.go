@@ -3,7 +3,7 @@ package gamemode
 import (
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"github.com/df-mc/dragonfly/dragonfly/player"
-	"github.com/eren5960/essentialsgo/commands/op"
+	"github.com/xerenahmed/essentialsgo/commands/op"
 )
 
 type GameMode struct {

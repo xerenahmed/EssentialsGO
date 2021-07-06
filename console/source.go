@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
 	"github.com/df-mc/dragonfly/dragonfly/world"
-	"github.com/eren5960/essentialsgo/global"
+	"github.com/xerenahmed/essentialsgo/global"
 	"github.com/go-gl/mathgl/mgl64"
 )
 

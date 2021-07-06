@@ -1,15 +1,14 @@
 package essentialsgo
 
-// Eren5960 <ahmederen123@gmail.com>
 import (
 	"github.com/df-mc/dragonfly/dragonfly"
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
-	"github.com/eren5960/essentialsgo/commands"
-	"github.com/eren5960/essentialsgo/commands/gamemode"
-	"github.com/eren5960/essentialsgo/commands/op"
-	"github.com/eren5960/essentialsgo/commands/time"
-	"github.com/eren5960/essentialsgo/console"
-	"github.com/eren5960/essentialsgo/global"
+	"github.com/xerenahmed/essentialsgo/commands"
+	"github.com/xerenahmed/essentialsgo/commands/gamemode"
+	"github.com/xerenahmed/essentialsgo/commands/op"
+	"github.com/xerenahmed/essentialsgo/commands/time"
+	"github.com/xerenahmed/essentialsgo/console"
+	"github.com/xerenahmed/essentialsgo/global"
 )
 
 func LoadCommands(server *dragonfly.Server, withOut []string) {

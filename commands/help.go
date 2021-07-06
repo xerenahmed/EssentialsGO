@@ -2,7 +2,7 @@ package commands
 
 import (
 	"github.com/df-mc/dragonfly/dragonfly/cmd"
-	"github.com/eren5960/essentialsgo/global"
+	"github.com/xerenahmed/essentialsgo/global"
 	"math"
 )
 

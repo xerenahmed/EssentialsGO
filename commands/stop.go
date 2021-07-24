@@ -10,7 +10,7 @@ type Stop struct{}
 
 func (t Stop) Run(source cmd.Source, output *cmd.Output) {
 	if !op.IsOp(source) {
-		output.Error("You don't have permission for this command.")
+		output.Error("You don't have permission to run this command.")
 		return
 	}
 	output.Printf("Stopping server.")

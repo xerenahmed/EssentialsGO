@@ -25,6 +25,6 @@ func (t Help) Run(_ cmd.Source, output *cmd.Output) {
 	}
 
 	if output.MessageCount() == 1 {
-		output.Errorf("There are only have %d pages.", int(math.Round(float64(len(global.Commands))/5)))
+		output.Errorf("There are only %d pages.", int(math.Round(float64(len(global.Commands))/5)))
 	}
 }

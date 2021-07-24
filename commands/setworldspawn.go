@@ -14,7 +14,7 @@ type SetWorldSpawnXYZ struct {
 
 func (t SetWorldSpawnXYZ) Run(source cmd.Source, output *cmd.Output) {
 	if !op.IsOp(source) {
-		output.Error("You don't have permission for this command.")
+		output.Error("You don't have permission to run this command.")
 		return
 	}
 	w := global.Server.World()
@@ -37,7 +37,7 @@ func (t SetWorldSpawn) Run(source cmd.Source, output *cmd.Output) {
 		return
 	}
 	if !op.IsOp(source) {
-		output.Error("You don't have permission for this command.")
+		output.Error("You don't have permission to run this command.")
 		return
 	}
 	if p, ok := source.(*player.Player); ok {

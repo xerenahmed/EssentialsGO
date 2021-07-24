@@ -1,6 +1,6 @@
-module github.com/eren5960/essentialsgo
+module github.com/xerenahmed/essentialsgo
 
-go 1.15
+go 1.16
 
 require (
 	github.com/df-mc/dragonfly v0.0.4-0.20201101091126-276e9ce5053a

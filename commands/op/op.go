@@ -10,7 +10,7 @@ type Op struct {
 
 func (t Op) Run(source cmd.Source, output *cmd.Output) {
 	if !IsOp(source) {
-		output.Error("You don't have permission for this command.")
+		output.Error("You don't have permission to run this command.")
 		return
 	}
 
@@ -28,7 +28,7 @@ type Deop struct {
 
 func (t Deop) Run(source cmd.Source, output *cmd.Output) {
 	if !IsOp(source) {
-		output.Error("You don't have permission for this command.")
+		output.Error("You don't have permission to run this command.")
 		return
 	}
 

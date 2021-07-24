@@ -8,7 +8,7 @@ Essential commands for [Dragonfly](https://github.com/df-mc/dragonfly).
 - [x] /defaultgamemode - Set the default gamemode.
 - [x] /setworldspawn - Sets a worlds' spawn point.
 - [x] /xyz - Show/hide coordinates.
-- [x] /op - Give op permissions to player.
+- [x] /op - Give op permissions to a player.
 - [x] /deop - Take op permissions from a player.
 - [x] /stop - Stop the server from in-game.
 - [x] /time - Changes or queries the worlds game time.

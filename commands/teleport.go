@@ -20,7 +20,7 @@ func (t TeleportXYZ) Run(source cmd.Source, output *cmd.Output) {
 	}
 	p, _ := source.(*player.Player)
 	if !op.IsOp(p) {
-		output.Error("You don't have permission for this command.")
+		output.Error("You don't have permission to run this command.")
 		return
 	}
 	p.Teleport(mgl64.Vec3{t.X, t.Y, t.Z})

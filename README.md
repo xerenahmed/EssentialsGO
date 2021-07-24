@@ -6,12 +6,12 @@ Essential commands for [Dragonfly](https://github.com/df-mc/dragonfly).
 - [x] /gamemode - Changes the player to a specific game mode.
 - [x] /teleport - Teleport everywhere.
 - [x] /defaultgamemode - Set the default gamemode.
-- [x] /setworldspawn - Sets a worlds's spawn point.
+- [x] /setworldspawn - Sets a worlds' spawn point.
 - [x] /xyz - Show/hide coordinates.
 - [x] /op - Give op permissions to player.
-- [x] /deop - Take op permissions from player.
-- [x] /stop - Stop the server from in game.
-- [x] /time - Changes or queries the world's game time.
+- [x] /deop - Take op permissions from a player.
+- [x] /stop - Stop the server from in-game.
+- [x] /time - Changes or queries the worlds game time.
 
 ## Usage
 ### Get the package
@@ -22,17 +22,18 @@ import "github.com/eren5960/essentialsgo"
 ```
 ### Load commands
 ```go
-essentialsgo.LoadCommands(server, nil) // the server is *dragonfly.Server{}, nil for load all commands
+essentialsgo.LoadCommands(server, nil) // the server is *dragonfly.Server{}, nil to load all commands
 ```
-#### Load commands without some commands
+### Exclude commands from loading
 ```go
-essentialsgo.LoadCommands(server, []string{"stop", "defaultgamemode"}) // All will be loaded except "stop" and "defaultgamemode" command
+essentialsgo.LoadCommands(server, []string{"stop", "defaultgamemode"}) // All commands will be loaded, except "stop" and "defaultgamemode"
 ```
-#### Finis
-If you want to support the project, you can give a star, report errors and bugs as issues.
 
-# VIP
-## Simple Console Command Sender
+### Lastly
+If you want to support the project, you can give this project a star.<br>
+Please report issues or errors in the Issues tab.
+
+### Simple Console Command Sender
 ```go
 essentialsgo.LoadConsole()
 ```

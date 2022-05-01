@@ -15,10 +15,10 @@ Essential commands for [Dragonfly](https://github.com/df-mc/dragonfly).
 
 ## Usage
 ### Get the package
-`go get -u github.com/eren5960/essentialsgo`
+`go get -u github.com/xerenahmed/essentialsgo`
 ### Import package
 ```go 
-import "github.com/eren5960/essentialsgo"
+import "github.com/xerenahmed/essentialsgo"
 ```
 ### Load commands
 ```go

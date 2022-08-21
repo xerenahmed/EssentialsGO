@@ -1,7 +1,6 @@
 package time
 
 import (
-	"github.com/davecgh/go-spew/spew"
 	"github.com/df-mc/dragonfly/server/cmd"
 )
 
@@ -11,7 +10,6 @@ type Query struct {
 }
 
 func (t Query) Run(source cmd.Source, output *cmd.Output) {
-	spew.Dump(t, source)
 }
 
 type timeQuery string

@@ -2,11 +2,11 @@ package commands
 
 import (
 	"fmt"
-	"github.com/df-mc/dragonfly/dragonfly/cmd"
-	"github.com/df-mc/dragonfly/dragonfly/player"
+	"github.com/df-mc/dragonfly/server/cmd"
+	"github.com/df-mc/dragonfly/server/player"
+	"github.com/go-gl/mathgl/mgl64"
 	"github.com/xerenahmed/essentialsgo/commands/op"
 	"github.com/xerenahmed/essentialsgo/console"
-	"github.com/go-gl/mathgl/mgl64"
 )
 
 type TeleportXYZ struct {

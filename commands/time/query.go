@@ -1,7 +1,7 @@
 package time
 
 import (
-	"github.com/df-mc/dragonfly/dragonfly/cmd"
+	"github.com/df-mc/dragonfly/server/cmd"
 	"reflect"
 )
 

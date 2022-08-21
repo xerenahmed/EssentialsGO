@@ -1,7 +1,7 @@
 package utils
 
 import (
-	"github.com/df-mc/dragonfly/dragonfly/player"
+	"github.com/df-mc/dragonfly/server/player"
 	"github.com/xerenahmed/essentialsgo/global"
 	"strings"
 )

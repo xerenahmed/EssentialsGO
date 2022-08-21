@@ -1,8 +1,8 @@
 package essentialsgo
 
 import (
-	"github.com/df-mc/dragonfly/dragonfly"
-	"github.com/df-mc/dragonfly/dragonfly/cmd"
+	"github.com/df-mc/dragonfly/server"
+	"github.com/df-mc/dragonfly/server/cmd"
 	"github.com/xerenahmed/essentialsgo/commands"
 	"github.com/xerenahmed/essentialsgo/commands/gamemode"
 	"github.com/xerenahmed/essentialsgo/commands/op"
@@ -11,16 +11,25 @@ import (
 	"github.com/xerenahmed/essentialsgo/global"
 )
 
-func LoadCommands(server *dragonfly.Server, withOut []string) {
+func RegisterCommands(server *server.Server) {
+	global.Server = server
+	op.LoadOps()
+
+	registerCommands(GetCommands())
+}
+
+func RegisterCommandsWithout(server *server.Server, withOut []string) {
 	global.Server = server
 	op.LoadOps()
 
 	cs := GetCommands()
-
 	for _, c_ := range withOut {
 		delete(cs, c_)
 	}
+	registerCommands(cs)
+}
 
+func registerCommands(cs map[string]cmd.Command) {
 	for _, c := range cs {
 		cmd.Register(c)
 		global.Commands = append(global.Commands, c)

@@ -15,18 +15,18 @@ Essential commands for [Dragonfly](https://github.com/df-mc/dragonfly).
 
 ## Usage
 ### Get the package
-`go get -u github.com/eren5960/essentialsgo`
+`go get -u github.com/xerenahmed/essentialsgo`
 ### Import package
 ```go 
-import "github.com/eren5960/essentialsgo"
+import "github.com/xerenahmed/essentialsgo"
 ```
-### Load commands
+### Register Commands
 ```go
-essentialsgo.LoadCommands(server, nil) // the server is *dragonfly.Server{}, nil to load all commands
+essentialsgo.RegisterCommands(server) // the server is *dragonfly.Server{}
 ```
-### Exclude commands from loading
+### Exclude Commands
 ```go
-essentialsgo.LoadCommands(server, []string{"stop", "defaultgamemode"}) // All commands will be loaded, except "stop" and "defaultgamemode"
+essentialsgo.RegisterCommandsWithout(server, []string{"stop", "defaultgamemode"}) // All commands will be loaded, except "stop" and "defaultgamemode"
 ```
 
 ### Lastly

@@ -2,8 +2,8 @@ package op
 
 import (
 	"fmt"
-	"github.com/df-mc/dragonfly/dragonfly/cmd"
-	"github.com/df-mc/dragonfly/dragonfly/player"
+	"github.com/df-mc/dragonfly/server/cmd"
+	"github.com/df-mc/dragonfly/server/player"
 	"github.com/xerenahmed/essentialsgo/commands/utils"
 	"github.com/xerenahmed/essentialsgo/console"
 	"io/ioutil"

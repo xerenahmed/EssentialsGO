@@ -1,8 +1,8 @@
 package gamemode
 
 import (
-	"github.com/df-mc/dragonfly/dragonfly/cmd"
-	"github.com/df-mc/dragonfly/dragonfly/player"
+	"github.com/df-mc/dragonfly/server/cmd"
+	"github.com/df-mc/dragonfly/server/player"
 	"github.com/xerenahmed/essentialsgo/commands/op"
 )
 

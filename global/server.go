@@ -1,5 +1,5 @@
 package global
 
-import "github.com/df-mc/dragonfly/dragonfly"
+import "github.com/df-mc/dragonfly/server"
 
-var Server *dragonfly.Server
+var Server *server.Server

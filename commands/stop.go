@@ -1,7 +1,7 @@
 package commands
 
 import (
-	"github.com/df-mc/dragonfly/dragonfly/cmd"
+	"github.com/df-mc/dragonfly/server/cmd"
 	"github.com/xerenahmed/essentialsgo/commands/op"
 	"github.com/xerenahmed/essentialsgo/global"
 )

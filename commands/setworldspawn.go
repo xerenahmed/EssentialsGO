@@ -1,9 +1,9 @@
 package commands
 
 import (
-	"github.com/df-mc/dragonfly/dragonfly/cmd"
-	"github.com/df-mc/dragonfly/dragonfly/player"
-	"github.com/df-mc/dragonfly/dragonfly/world"
+	"github.com/df-mc/dragonfly/server/block/cube"
+	"github.com/df-mc/dragonfly/server/cmd"
+	"github.com/df-mc/dragonfly/server/player"
 	"github.com/xerenahmed/essentialsgo/commands/op"
 	"github.com/xerenahmed/essentialsgo/global"
 )
@@ -18,7 +18,7 @@ func (t SetWorldSpawnXYZ) Run(source cmd.Source, output *cmd.Output) {
 		return
 	}
 	w := global.Server.World()
-	bp := world.BlockPos{int(t.X), int(t.Y), int(t.Z)}
+	bp := cube.Pos{int(t.X), int(t.Y), int(t.Z)}
 
 	if p, ok := source.(*player.Player); ok {
 		w = p.World()
@@ -42,7 +42,7 @@ func (t SetWorldSpawn) Run(source cmd.Source, output *cmd.Output) {
 	}
 	if p, ok := source.(*player.Player); ok {
 		pos := p.Position()
-		bp := world.BlockPos{int(pos.X()), int(pos.Y()), int(pos.Z())}
+		bp := cube.Pos{int(pos.X()), int(pos.Y()), int(pos.Z())}
 		p.World().SetSpawn(bp)
 		output.Printf("Set the world spawn point to (%d, %d, %d)", bp.X(), bp.Y(), bp.Z())
 	} else {

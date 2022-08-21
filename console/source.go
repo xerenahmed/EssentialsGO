@@ -2,10 +2,10 @@ package console
 
 import (
 	"fmt"
-	"github.com/df-mc/dragonfly/dragonfly/cmd"
-	"github.com/df-mc/dragonfly/dragonfly/world"
-	"github.com/xerenahmed/essentialsgo/global"
+	"github.com/df-mc/dragonfly/server/cmd"
+	"github.com/df-mc/dragonfly/server/world"
 	"github.com/go-gl/mathgl/mgl64"
+	"github.com/xerenahmed/essentialsgo/global"
 )
 
 type Console struct{}

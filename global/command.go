@@ -1,5 +1,5 @@
 package global
 
-import "github.com/df-mc/dragonfly/dragonfly/cmd"
+import "github.com/df-mc/dragonfly/server/cmd"
 
 var Commands []cmd.Command

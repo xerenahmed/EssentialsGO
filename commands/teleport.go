@@ -15,7 +15,7 @@ type TeleportXYZ struct {
 
 func (t TeleportXYZ) Run(source cmd.Source, output *cmd.Output) {
 	if _, ok := source.(*console.Console); ok {
-		output.Error("Use in game!")
+		output.Error("Use in-game or specify player.")
 		return
 	}
 	p, _ := source.(*player.Player)

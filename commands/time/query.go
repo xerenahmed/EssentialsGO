@@ -1,23 +1,17 @@
 package time
 
 import (
+	"github.com/davecgh/go-spew/spew"
 	"github.com/df-mc/dragonfly/server/cmd"
-	"reflect"
 )
 
 type Query struct {
-	Sub  query
-	Time timeQuery `name:"time"`
+	Sub  cmd.SubCommand `cmd:"query"`
+	Time timeQuery      `name:"time"`
 }
 
 func (t Query) Run(source cmd.Source, output *cmd.Output) {
-	// TODO
-}
-
-type query string
-
-func (query) SubName() string {
-	return "query"
+	spew.Dump(t, source)
 }
 
 type timeQuery string
@@ -26,8 +20,6 @@ func (timeQuery) Type() string {
 	return "TimeQuery"
 }
 
-func (timeQuery) Options() []string {
+func (timeQuery) Options(source cmd.Source) []string {
 	return []string{"day", "daytime", "gametime"}
 }
-
-func (timeQuery) SetOption(o string, r reflect.Value) {}

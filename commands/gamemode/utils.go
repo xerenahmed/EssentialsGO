@@ -1,8 +1,8 @@
 package gamemode
 
 import (
+	"github.com/df-mc/dragonfly/server/cmd"
 	"github.com/df-mc/dragonfly/server/world"
-	"reflect"
 )
 
 func StringToGameMode(arg string) world.GameMode {
@@ -29,10 +29,6 @@ func (mode) Type() string {
 	return "mode"
 }
 
-func (mode) Options() []string {
+func (mode) Options(source cmd.Source) []string {
 	return []string{"0", "1", "2", "3", "s", "c", "a", "v", "survival", "creative", "adventure", "spectator"}
-}
-
-func (mode) SetOption(option string, r reflect.Value) {
-	r.SetString(option)
 }

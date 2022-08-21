@@ -8,8 +8,8 @@ import (
 )
 
 type Add struct {
-	Sub    add
-	Amount int `name:"amount"`
+	Sub    cmd.SubCommand `cmd:"add"`
+	Amount int            `name:"amount"`
 }
 
 func (t Add) Run(source cmd.Source, output *cmd.Output) {
@@ -24,10 +24,4 @@ func (t Add) Run(source cmd.Source, output *cmd.Output) {
 	}
 	w.SetTime(w.Time() + t.Amount)
 	output.Printf("Added %d to the time", t.Amount)
-}
-
-type add string
-
-func (add) SubName() string {
-	return "add"
 }
